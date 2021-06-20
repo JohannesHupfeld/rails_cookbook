@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2021_06_20_032329) do
     t.string "name"
     t.text "instructions"
     t.text "ingredients"
+    t.integer "user_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
