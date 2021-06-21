@@ -38,6 +38,6 @@
 ### Class
     has_many :posts
 
-
-rails c -s = rails console sandbox, doesnt save to database
-
+### Tips
+    rails c -s = rails console sandbox, doesnt save to database
+    write custom routes above resource routes (resources :comments) otherwise it will run resource routes first
