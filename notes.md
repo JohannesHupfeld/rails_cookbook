@@ -37,3 +37,7 @@
     name
 ### Class
     has_many :posts
+
+
+rails c -s = rails console sandbox, doesnt save to database
+
