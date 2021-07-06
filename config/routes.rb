@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   
   #login route
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  
   #logout route
   delete '/logout' => 'sessions#destroy'# Important that its delete so that the user cant view it in the url bar 
 
