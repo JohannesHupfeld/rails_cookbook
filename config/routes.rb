@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   root "sessions#home"
-  
+
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   
+  #login route
+  #logout route
+  delete '/logout' => 'sessions#destroy'# Important that its delete so that the user cant view it in the url bar 
+
   
   # resources :categories
   resources :comments
