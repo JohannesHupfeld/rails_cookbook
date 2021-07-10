@@ -2,7 +2,11 @@ class CommentsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def index
-    @comments = Comment.all 
+    if params[:recipe_id] && recipe = Recipe.find_by_id(params[:recipe_id])
+      @comments = @recipe.comments
+    else
+      @comments = Comment.all 
+    end
   end
 
   def new
