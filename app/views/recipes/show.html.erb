@@ -1,0 +1,10 @@
+<h1><%= @recipe.name %></h1>
+<h2>By <%= @recipe.user.name %></h2>
+
+<div>Ingredients: <%= @recipe.ingredient %></div>
+<div>Instructions: <%= @recipe.instruction %></div>
+
+<h4> Comments: </h4>
+<% @recipe.comments.each do |c| %>
+  <li><strong><%= c.user.name %></strong> commented "<%= link_to c.name, comment_path(c) %>/li>
+<% end%>
