@@ -1,8 +1,8 @@
 <h1>Welcome <%= @user.name %></h1>
 
+<!--
 <%= link_to "Logout", logout_path, method: :delete%>
 
-<!--
 <%= form_tag logout_path, method: :delete do  %>
   <%= submit_tag "logout " %>
 <% end %>
