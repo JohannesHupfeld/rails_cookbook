@@ -38,6 +38,11 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find_by(id: params[:id])
+    if @comment.update(comment_params)
+      redirect_to comment_path(@comment)
+    else
+      render :edit
+    end
   end
 
   private
