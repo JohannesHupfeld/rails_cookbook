@@ -9,5 +9,5 @@
 
 <h4> Comments: </h4>
 <% @recipe.comments.each do |c| %>
-  <li><strong><%= c.user.name %></strong> commented "<%= link_to c.content, comment_path(c) %>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %></li>
+  <li><strong><%= c.user.name %></strong> commented "<%= link_to c.content, recipe_comment_path(@recipe, c) %>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %></li>
 <% end%>
