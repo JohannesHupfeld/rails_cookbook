@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "sessions#home"
-
+  
+  #signup route
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   
@@ -14,7 +15,11 @@ Rails.application.routes.draw do
   
   # resources :categories
   resources :comments
-  resources :recipes
-  resources :users
+  resources :users do
+    resources :posts, only: [:new, :create, :index] #shallow routing -- only nested if we need it to be nested
+  end
+  resources :recipes do
+    resources :comments
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
