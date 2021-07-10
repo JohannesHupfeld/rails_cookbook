@@ -4,6 +4,9 @@
 <div>Ingredients: <%= @recipe.ingredient %></div>
 <div>Instructions: <%= @recipe.instruction %></div>
 
+<p><%= link_to "All Comments", recipe_comments_path(@recipe) %></p>
+<p><%= link_to "Add New Comment", new_recipe_comment_path(@recipe) %></p>
+
 <h4> Comments: </h4>
 <% @recipe.comments.each do |c| %>
   <li><strong><%= c.user.name %></strong> commented "<%= link_to c.name, comment_path(c) %>/li>
