@@ -5,6 +5,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
+  # def index
+  #   if params[:user_id] && user = User.find_by_id(params[:user_id])
+  #     @recipes = @user.recipes
+  #   else
+  #     @recipes = Recipe.all 
+  #   end
+  # end
+
   def create
     @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
