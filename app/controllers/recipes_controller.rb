@@ -5,13 +5,13 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  # def index
-  #   if params[:user_id] && user = User.find_by_id(params[:user_id])
-  #     @recipes = @user.recipes
-  #   else
-  #     @recipes = Recipe.all 
-  #   end
-  # end
+  def index
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @recipes = @user.recipes
+    else
+      @recipes = Recipe.all 
+    end
+  end
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
@@ -20,6 +20,11 @@ class RecipesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @recipe = Recipe.find_by(id: params[:id])
+    redirect_to recipes_path if !@recipe
   end
 
   private
