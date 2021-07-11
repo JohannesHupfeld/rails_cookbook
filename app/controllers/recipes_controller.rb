@@ -9,12 +9,13 @@ class RecipesController < ApplicationController
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
       @recipes = @user.recipes
     else
+      @error = "This user doesn't exist" if params[:user_id]
       @recipes = Recipe.all 
     end
   end
 
   def create
-    @recipe = current_user.recipes.build(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params) #user_id and recipe are connected -- post belongs to user
     if @recipe.save
       redirect_to recipes_path
     else
