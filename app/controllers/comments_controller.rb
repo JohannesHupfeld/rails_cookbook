@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     if params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id]) #if nested and finds the recipe
       @comment = @recipe.comments.build
     else  
-      @error = "Does not exist" if params[:post_id]
+      @error = "Does not exist" if params[:recipe_id]
       @comment = Comment.new
     end
   end
