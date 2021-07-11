@@ -14,7 +14,8 @@
     <div>
       <% if logged_in? %>
 
-        <%= link_to "Welcome Page", root_path %> |
+        <%= link_to "Home", root_path %> |
+        <%= link_to "Welcome page", user_path(current_user)%> |
         <%= link_to "My Recipes", user_recipes_path(current_user) %> |
         <%= link_to "Create Recipe", new_recipe_path %> |
         <%= link_to "All Recipes", recipes_path %> |
